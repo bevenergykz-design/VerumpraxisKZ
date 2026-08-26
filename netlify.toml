@@ -1,7 +1,7 @@
-﻿[build]
+[build]
   base = "nextjs_space"
-  publish = "nextjs_space/.next"
   command = "npm run build"
+  publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
