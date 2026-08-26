@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vp-primary: #1D4E5F;
+  --vp-secondary: #2A7090;
+  --vp-accent: #3A9ABF;
+  --vp-dark-start: #0D2B36;
+  --vp-dark-end: #1D4E5F;
+  --vp-light: #F4F7F9;
+  --vp-accordion: #EEF4F7;
+  --vp-footer: #0A1E26;
+  --vp-text-light: #D0E8F0;
+  --vp-text-dark: #1D2E35;
+  --vp-text-muted: #4A6572;
+
+  --background: 0 0% 100%;
+  --foreground: 200 30% 16%;
+  --card: 200 25% 97%;
+  --card-foreground: 200 30% 16%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 200 30% 16%;
+  --primary: 195 53% 24%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 199 54% 36%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 200 25% 95%;
+  --muted-foreground: 200 20% 36%;
+  --accent: 199 54% 49%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 200 20% 85%;
+  --input: 200 20% 85%;
+  --ring: 199 54% 49%;
+  --radius: 0.5rem;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 350ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', system-ui, sans-serif;
+  color: var(--vp-text-light);
+  background: var(--vp-dark-start);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+[data-hydration-error] {
+  display: none !important;
+}
+
+.font-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.font-body {
+  font-family: 'Open Sans', system-ui, sans-serif;
+}
+
+.gradient-dark {
+  background: linear-gradient(135deg, var(--vp-dark-start), var(--vp-dark-end));
+}
+
+.gradient-dark-alt {
+  background: linear-gradient(180deg, var(--vp-dark-end), var(--vp-dark-start));
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(58,154,191,0.15), transparent);
+}
+
+/* Geometric grid pattern for hero */
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.pattern-overlay {
+  background-image:
+    linear-gradient(30deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03)),
+    linear-gradient(150deg, rgba(255,255,255,0.03) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.03) 87.5%, rgba(255,255,255,0.03));
+  background-size: 80px 140px;
+  background-position: 0 0, 40px 70px;
+}
+
+/* Fullscreen overlay menu */
+.menu-overlay {
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  background: linear-gradient(160deg, rgba(13,43,54,0.92) 0%, rgba(10,30,38,0.96) 100%);
+}
+
+/* Menu nav item underline from center */
+.menu-nav-item {
+  position: relative;
+  display: inline-block;
+}
+.menu-nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.55);
+  transition: width 0.35s ease, left 0.35s ease;
+}
+.menu-nav-item:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--vp-accent);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
