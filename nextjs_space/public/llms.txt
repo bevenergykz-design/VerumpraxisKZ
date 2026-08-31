@@ -6,7 +6,7 @@
 
 - Name: Verumpraxis (Верумпраксис)
 - Type: Law firm / Legal services
-- Location: Kozhabekova 19, 2nd floor, Almaty, Kazakhstan (050040)
+- Location: Kozhabekova 19, 4th floor, office 8, Almaty, Kazakhstan (050040)
 - Languages: Russian, English, Kazakh, Chinese
 - Email: info@verumpraxis.kz
 - Phone / WhatsApp: +7 707 250 6680
@@ -29,7 +29,10 @@
 
 ## Key pages
 
-- Home: https://verumpraxis.kz
+- Home (RU): https://verumpraxis.kz
+- Home (EN): https://verumpraxis.kz/en
+- Home (KZ): https://verumpraxis.kz/kz
+- Home (ZH): https://verumpraxis.kz/zh
 - Publications: https://verumpraxis.kz/publications
 - Legal Guide for Foreign Investors in Kazakhstan (corporate law, tax, AIFC): https://verumpraxis.kz/publications/legal-guide-investors
 - Digital Asset Regulation in Kazakhstan (crypto, AIFC, licensing): https://verumpraxis.kz/publications/digital-assets
