@@ -232,7 +232,16 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="google-site-verification" content="bboY_ALC-2rVj72g0ZUrN0y56JcCznSNHOs9b4BXfhE" />
         <meta name="yandex-verification" content="22a7fce8568c34e6" />
-        <script src="https://apps.abacus.ai/chatllm/appllm-lib.js" />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              [style*="opacity:0"], [style*="opacity: 0"] {
+                opacity: 1 !important;
+                transform: none !important;
+              }
+            `,
+          }}
+        />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0YL95T9MS" />
         <script
           dangerouslySetInnerHTML={{
