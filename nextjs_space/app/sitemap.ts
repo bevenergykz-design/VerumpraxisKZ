@@ -1,13 +1,7 @@
 import type { MetadataRoute } from 'next';
-import { headers } from 'next/headers';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  let siteUrl = 'https://verumpraxis.kz';
-  try {
-    const headersList = headers();
-    const host = headersList?.get?.('x-forwarded-host');
-    if (host) siteUrl = `https://${host}`;
-  } catch {}
+  const siteUrl = 'https://verumpraxis.kz';
 
   // hreflang alternates for the language variants of the homepage.
   const homeLanguages = {

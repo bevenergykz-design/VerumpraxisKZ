@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://verumpraxis.kz</loc>
+<xhtml:link rel="alternate" hreflang="ru" href="https://verumpraxis.kz" />
+<xhtml:link rel="alternate" hreflang="en" href="https://verumpraxis.com" />
+<xhtml:link rel="alternate" hreflang="kk" href="https://verumpraxis.kz/kz" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://verumpraxis.kz/zh" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://verumpraxis.kz" />
+<lastmod>2026-09-01T12:41:26.827Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://verumpraxis.kz/kz</loc>
+<xhtml:link rel="alternate" hreflang="ru" href="https://verumpraxis.kz" />
+<xhtml:link rel="alternate" hreflang="en" href="https://verumpraxis.com" />
+<xhtml:link rel="alternate" hreflang="kk" href="https://verumpraxis.kz/kz" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://verumpraxis.kz/zh" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://verumpraxis.kz" />
+<lastmod>2026-09-01T12:41:26.827Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://verumpraxis.kz/zh</loc>
+<xhtml:link rel="alternate" hreflang="ru" href="https://verumpraxis.kz" />
+<xhtml:link rel="alternate" hreflang="en" href="https://verumpraxis.com" />
+<xhtml:link rel="alternate" hreflang="kk" href="https://verumpraxis.kz/kz" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://verumpraxis.kz/zh" />
+<xhtml:link rel="alternate" hreflang="x-default" href="https://verumpraxis.kz" />
+<lastmod>2026-09-01T12:41:26.827Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://verumpraxis.kz/publications</loc>
+<lastmod>2026-09-01T12:41:26.827Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://verumpraxis.kz/publications/legal-guide-investors</loc>
+<lastmod>2026-09-01T12:41:26.827Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://verumpraxis.kz/publications/digital-assets</loc>
+<lastmod>2026-09-01T12:41:26.827Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://verumpraxis.kz/privacy</loc>
+<lastmod>2026-09-01T12:41:26.827Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.4</priority>
+</url>
+</urlset>

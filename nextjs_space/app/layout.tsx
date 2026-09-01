@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || 'https://verumpraxis.kz'),
   title: {

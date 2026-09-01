@@ -24,11 +24,20 @@ export default function ContactSection() {
     if (formState?.honeypot) return;
     setStatus('loading');
     try {
-      const res = await fetch('/api/contact', {
+      let res = await fetch('/send.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formState),
-      });
+      }).catch(() => null);
+
+      if (!res || !res.ok) {
+        res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formState),
+        }).catch(() => null);
+      }
+
       const data = await res?.json?.();
       if (data?.success) {
         setStatus('success');

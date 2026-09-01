@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import ClientApp from '../_components/client-app';
 
-export const dynamic = 'force-dynamic';
 
 const LANGUAGES = {
   'ru': 'https://verumpraxis.kz',

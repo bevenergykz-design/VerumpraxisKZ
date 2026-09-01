@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verumpraxis — Варианты дизайна</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0D2B36; color: #D0E8F0; font-family: 'Inter', sans-serif; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #fff; margin-bottom: 8px; }
+    .subtitle { color: #3A9ABF; font-size: 14px; margin-bottom: 48px; letter-spacing: 2px; }
+    
+    /* Section headers */
+    .section-title { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 24px; color: #3A9ABF; 
+      margin-bottom: 32px; padding-bottom: 12px;
+      border-bottom: 1px solid rgba(58,154,191,0.2);
+    }
+    .section-title span { color: rgba(255,255,255,0.4); font-size: 14px; font-family: 'Inter', sans-serif; margin-left: 12px; }
+    
+    /* Font options grid */
+    .font-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 64px; }
+    .font-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+    .font-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(58,154,191,0.3); }
+    .font-card .label { 
+      display: inline-block; background: rgba(58,154,191,0.15); color: #3A9ABF; 
+      font-size: 11px; font-weight: 600; letter-spacing: 2px; 
+      padding: 4px 12px; border-radius: 4px; margin-bottom: 20px; 
+    }
+    .font-card .heading-preview { font-size: 32px; color: #fff; margin-bottom: 8px; line-height: 1.2; }
+    .font-card .tagline { font-size: 18px; margin-bottom: 16px; opacity: 0.7; font-style: italic; }
+    .font-card .body-preview { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
+    .font-card .nav-preview { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+    .font-card .nav-preview span { font-size: 13px; color: rgba(255,255,255,0.6); }
+    .font-card .font-names { font-size: 11px; color: rgba(58,154,191,0.7); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; }
+    
+    /* Logo options grid */
+    .logo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 64px; }
+    .logo-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .logo-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(58,154,191,0.3); }
+    .logo-card .label { 
+      display: inline-block; background: rgba(58,154,191,0.15); color: #3A9ABF; 
+      font-size: 11px; font-weight: 600; letter-spacing: 2px; 
+      padding: 4px 12px; border-radius: 4px; margin-bottom: 24px; 
+    }
+    .logo-card img { display: block; margin: 0 auto 20px; }
+    .logo-card .logo-desc { font-size: 12px; color: rgba(255,255,255,0.4); }
+    
+    /* Header mockup */
+    .header-mockup {
+      background: rgba(13,43,54,0.95);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+    .header-mockup .logo-area { display: flex; align-items: center; gap: 10px; }
+    .header-mockup .logo-area img { height: 36px; width: auto; }
+    .header-mockup .nav-area { display: flex; gap: 16px; }
+    .header-mockup .nav-area span { font-size: 12px; color: rgba(255,255,255,0.5); }
+    
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(58,154,191,0.2), transparent); margin: 48px 0; }
+    
+    /* Recommendation badge */
+    .recommended { position: relative; }
+    .recommended::after {
+      content: '★ РЕКОМЕНДУЕМ';
+      position: absolute; top: -12px; right: 16px;
+      background: #3A9ABF; color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px;
+      padding: 4px 10px; border-radius: 4px;
+    }
+    
+    @media (max-width: 768px) {
+      .font-grid, .logo-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Варианты дизайна Verumpraxis</h1>
+    <div class="subtitle">ШРИФТЫ · ЛОГОТИПЫ · СТИЛИСТИКА</div>
+
+    <!-- ===== FONT OPTIONS ===== -->
+    <div class="section-title">✅ Выбранные шрифты — DM Serif Display + Raleway <span>Уже применены к сайту</span></div>
+    
+    <div class="font-grid">
+      <!-- Option A: Playfair Display + Inter -->
+      <div class="font-card recommended">
+        <div class="label">ВАРИАНТ A</div>
+        <div class="heading-preview" style="font-family: 'Playfair Display', serif; font-weight: 600;">
+          Защита ваших интересов.<br>Реальный результат.
+        </div>
+        <div class="tagline" style="font-family: 'Playfair Display', serif;">Turning Law into Action</div>
+        <div class="body-preview" style="font-family: 'Inter', sans-serif;">
+          Verumpraxis — независимая юридическая фирма. Корпоративное право, M&A и международный арбитраж. Помогаем казахстанскому бизнесу масштабироваться.
+        </div>
+        <div class="nav-preview">
+          <span style="font-family: 'Inter', sans-serif;">О компании</span>
+          <span style="font-family: 'Inter', sans-serif;">Услуги</span>
+          <span style="font-family: 'Inter', sans-serif;">Команда</span>
+          <span style="font-family: 'Inter', sans-serif;">Контакты</span>
+        </div>
+        <div class="font-names">Заголовки: Playfair Display · Текст: Inter</div>
+      </div>
+
+      <!-- Option B: DM Serif Display + Raleway -->
+      <div class="font-card">
+        <div class="label">ВАРИАНТ B</div>
+        <div class="heading-preview" style="font-family: 'DM Serif Display', serif; font-weight: 400;">
+          Защита ваших интересов.<br>Реальный результат.
+        </div>
+        <div class="tagline" style="font-family: 'DM Serif Display', serif;">Turning Law into Action</div>
+        <div class="body-preview" style="font-family: 'Raleway', sans-serif; font-weight: 400;">
+          Verumpraxis — независимая юридическая фирма. Корпоративное право, M&A и международный арбитраж. Помогаем казахстанскому бизнесу масштабироваться.
+        </div>
+        <div class="nav-preview">
+          <span style="font-family: 'Raleway', sans-serif;">О компании</span>
+          <span style="font-family: 'Raleway', sans-serif;">Услуги</span>
+          <span style="font-family: 'Raleway', sans-serif;">Команда</span>
+          <span style="font-family: 'Raleway', sans-serif;">Контакты</span>
+        </div>
+        <div class="font-names">Заголовки: DM Serif Display · Текст: Raleway</div>
+      </div>
+
+      <!-- Option C: Libre Baskerville + Montserrat -->
+      <div class="font-card">
+        <div class="label">ВАРИАНТ C</div>
+        <div class="heading-preview" style="font-family: 'Libre Baskerville', serif; font-weight: 700;">
+          Защита ваших интересов.<br>Реальный результат.
+        </div>
+        <div class="tagline" style="font-family: 'Libre Baskerville', serif; font-weight: 400;">Turning Law into Action</div>
+        <div class="body-preview" style="font-family: 'Montserrat', sans-serif; font-weight: 400;">
+          Verumpraxis — независимая юридическая фирма. Корпоративное право, M&A и международный арбитраж. Помогаем казахстанскому бизнесу масштабироваться.
+        </div>
+        <div class="nav-preview">
+          <span style="font-family: 'Montserrat', sans-serif;">О компании</span>
+          <span style="font-family: 'Montserrat', sans-serif;">Услуги</span>
+          <span style="font-family: 'Montserrat', sans-serif;">Команда</span>
+          <span style="font-family: 'Montserrat', sans-serif;">Контакты</span>
+        </div>
+        <div class="font-names">Заголовки: Libre Baskerville · Текст: Montserrat</div>
+      </div>
+
+      <!-- Option D: Source Serif 4 + Nunito Sans -->
+      <div class="font-card">
+        <div class="label">ВАРИАНТ D</div>
+        <div class="heading-preview" style="font-family: 'Source Serif 4', serif; font-weight: 600;">
+          Защита ваших интересов.<br>Реальный результат.
+        </div>
+        <div class="tagline" style="font-family: 'Source Serif 4', serif; font-weight: 400;">Turning Law into Action</div>
+        <div class="body-preview" style="font-family: 'Nunito Sans', sans-serif; font-weight: 400;">
+          Verumpraxis — независимая юридическая фирма. Корпоративное право, M&A и международный арбитраж. Помогаем казахстанскому бизнесу масштабироваться.
+        </div>
+        <div class="nav-preview">
+          <span style="font-family: 'Nunito Sans', sans-serif;">О компании</span>
+          <span style="font-family: 'Nunito Sans', sans-serif;">Услуги</span>
+          <span style="font-family: 'Nunito Sans', sans-serif;">Команда</span>
+          <span style="font-family: 'Nunito Sans', sans-serif;">Контакты</span>
+        </div>
+        <div class="font-names">Заголовки: Source Serif 4 · Текст: Nunito Sans</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== LOGO OPTIONS ===== -->
+    <div class="section-title">Вариант 2 — Логотипы <span>VP белый + VERUMPRAXIS в корпоративном цвете</span></div>
+    
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="label">ЛОГОТИП 1 — Classic Elegant</div>
+        <img src="/images/logo-v1.png" alt="Logo V1 Classic Elegant" style="max-width: 340px; height: auto;">
+        <div class="logo-desc">Элегантный тонкий шрифт · Тонкая разделительная линия · Лёгкий и воздушный</div>
+        <div class="header-mockup">
+          <div class="logo-area">
+            <img src="/images/logo-v1.png" alt="" height="40">
+          </div>
+          <div class="nav-area">
+            <span>О компании</span><span>Услуги</span><span>Команда</span><span>FAQ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="label">ЛОГОТИП 2 — Bold Modern</div>
+        <img src="/images/logo-v2.png" alt="Logo V2 Bold Modern" style="max-width: 340px; height: auto;">
+        <div class="logo-desc">Жирный геометрический шрифт · Уверенный и современный · Минимализм</div>
+        <div class="header-mockup">
+          <div class="logo-area">
+            <img src="/images/logo-v2.png" alt="" height="40">
+          </div>
+          <div class="nav-area">
+            <span>О компании</span><span>Услуги</span><span>Команда</span><span>FAQ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="label">ЛОГОТИП 3 — Luxury Italic</div>
+        <img src="/images/logo-v3.png" alt="Logo V3 Luxury Italic" style="max-width: 340px; height: auto;">
+        <div class="logo-desc">Курсивный VP · Акцентные линии по бокам · Премиальное позиционирование</div>
+        <div class="header-mockup">
+          <div class="logo-area">
+            <img src="/images/logo-v3.png" alt="" height="40">
+          </div>
+          <div class="nav-area">
+            <span>О компании</span><span>Услуги</span><span>Команда</span><span>FAQ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="label">ЛОГОТИП 4 — Framed Minimal</div>
+        <img src="/images/logo-v4.png" alt="Logo V4 Framed Minimal" style="max-width: 340px; height: auto;">
+        <div class="logo-desc">Рамка с угловыми скобками · Строгий и статусный · Как юридическая печать</div>
+        <div class="header-mockup">
+          <div class="logo-area">
+            <img src="/images/logo-v4.png" alt="" height="40">
+          </div>
+          <div class="nav-area">
+            <span>О компании</span><span>Услуги</span><span>Команда</span><span>FAQ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== DESIGN NOTES ===== -->
+    <div class="section-title">Рекомендации</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div class="font-card">
+        <div class="label">ШРИФТЫ</div>
+        <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 2; color: rgba(255,255,255,0.6);">
+          <li>✦ <strong style="color:#fff">Вариант A</strong> — Playfair Display + Inter: классический выбор для юрфирм, контраст между серифным заголовком и чистым телом</li>
+          <li>✦ <strong style="color:#fff">Вариант B</strong> — DM Serif + Raleway: более мягкий и дружелюбный, хорош для привлечения стартапов</li>
+          <li>✦ <strong style="color:#fff">Вариант C</strong> — Libre Baskerville + Montserrat: традиционный и солидный, подчёркивает опыт</li>
+          <li>✦ <strong style="color:#fff">Вариант D</strong> — Source Serif 4 + Nunito Sans: современный и читабельный, баланс между строгостью и доступностью</li>
+        </ul>
+      </div>
+      <div class="font-card">
+        <div class="label">ЛОГОТИПЫ</div>
+        <ul style="list-style: none; padding: 0; font-size: 13px; line-height: 2; color: rgba(255,255,255,0.6);">
+          <li>✦ <strong style="color:#fff">Логотип 1</strong> — Элегантный и лёгкий. Идеален для премиум-позиционирования</li>
+          <li>✦ <strong style="color:#fff">Логотип 2</strong> — Уверенный и современный. Подходит для финтех и IT-фокуса</li>
+          <li>✦ <strong style="color:#fff">Логотип 3</strong> — Люксовый курсивный VP. Для максимального премиального позиционирования</li>
+          <li>✦ <strong style="color:#fff">Логотип 4</strong> — Строгий с рамкой. Ассоциации с правовыми документами и печатями</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div style="margin-top: 48px; padding: 24px; background: rgba(58,154,191,0.1); border-radius: 8px; border: 1px solid rgba(58,154,191,0.2); font-size: 14px; color: rgba(255,255,255,0.7);">
+      <strong style="color: #3A9ABF;">💡 Наша рекомендация:</strong> Вариант A (Playfair Display + Inter) + Логотип 1 — это сочетание создаёт образ элитной юридической фирмы с международной экспертизой. Playfair Display добавляет вес и серьёзность заголовкам, Inter обеспечивает отличную читабельность текста.
+    </div>
+  </div>
+</body>
+</html>
