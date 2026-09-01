@@ -35,15 +35,17 @@ function AnimatedCounter({ target, suffix, started }: { target: number; suffix: 
 
 export default function NumbersSection() {
   const { t } = useI18n();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [started, setStarted] = useState(false);
   const items = t('numbers.items') ?? [];
 
   return (
-    <section id="numbers" className="py-24 sm:py-28 md:py-36" ref={ref} style={{ background: 'linear-gradient(180deg, var(--vp-dark-end), var(--vp-dark-start))' }}>
+    <section id="numbers" className="py-24 sm:py-28 md:py-36" style={{ background: 'linear-gradient(180deg, var(--vp-dark-end), var(--vp-dark-start))' }}>
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          onViewportEnter={() => setStarted(true)}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
           className="font-heading text-3xl sm:text-4xl md:text-[42px] text-white text-center mb-16 sm:mb-20"
         >
@@ -55,9 +57,10 @@ export default function NumbersSection() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="p-5 sm:p-7 md:p-8 text-center transition-all duration-300 hover:bg-white/[0.06]"
                 style={{
                   backgroundColor: 'rgba(255,255,255,0.03)',
@@ -67,7 +70,7 @@ export default function NumbersSection() {
               >
                 <Icon size={26} strokeWidth={1.5} className="mx-auto mb-4 sm:mb-5" style={{ color: 'white' }} />
                 <div className="font-heading text-3xl sm:text-4xl md:text-5xl mb-2" style={{ color: 'var(--vp-accent)' }}>
-                  <AnimatedCounter target={item?.value ?? 0} suffix={item?.suffix ?? ''} started={inView} />
+                  <AnimatedCounter target={item?.value ?? 0} suffix={item?.suffix ?? ''} started={started} />
                 </div>
                 <div className="text-xs sm:text-sm text-white/50" style={{ fontFamily: "'Open Sans', sans-serif" }}>{item?.label ?? ''}</div>
               </motion.div>

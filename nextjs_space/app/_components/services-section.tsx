@@ -11,7 +11,6 @@ const ACCORDION_ICONS = [Users, Globe, Monitor, User, TrendingUp, Calculator, Ga
 export default function ServicesSection() {
   const { t } = useI18n();
   const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const tabs = t('services.tabs') ?? [];
 
   const toggle = (i: number) => {
@@ -27,11 +26,12 @@ export default function ServicesSection() {
   };
 
   return (
-    <section id="services" className="gradient-dark py-24 sm:py-28 md:py-36" ref={ref}>
+    <section id="services" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
           className="font-heading text-3xl sm:text-4xl md:text-[42px] text-white text-center mb-14 sm:mb-16"
         >
@@ -48,8 +48,9 @@ export default function ServicesSection() {
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.05 }}
+                transition={{ duration: 0.5, delay: i * 0.05 }}
                 style={{
                   backgroundColor: isOpen ? 'rgba(255,255,255,0.04)' : 'rgba(255,255,255,0.02)',
                   border: '1px solid rgba(255,255,255,0.08)',

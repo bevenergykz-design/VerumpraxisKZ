@@ -9,7 +9,6 @@ import { Clock, Tag, ArrowRight } from 'lucide-react';
 
 export default function PublicationsSection() {
   const { t } = useI18n();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [activeCategory, setActiveCategory] = useState(0);
   const categories = t('publications.categories') ?? [];
   const placeholders = t('publications.placeholders') ?? [];
@@ -21,11 +20,12 @@ export default function PublicationsSection() {
       : [];
 
   return (
-    <section id="publications" className="py-24 sm:py-28 md:py-36 gradient-dark" ref={ref}>
+    <section id="publications" className="py-24 sm:py-28 md:py-36 gradient-dark">
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-14 sm:mb-16"
         >
@@ -69,8 +69,9 @@ export default function PublicationsSection() {
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 className={`p-6 sm:p-7 hover:translate-y-[-4px] transition-all duration-400 h-full flex flex-col ${item?.slug ? 'group cursor-pointer' : ''}`}
                 style={{
                   backgroundColor: 'rgba(255,255,255,0.03)',

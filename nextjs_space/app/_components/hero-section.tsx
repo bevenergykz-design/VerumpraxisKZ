@@ -20,48 +20,30 @@ export default function HeroSection() {
       <div className="absolute inset-0 pattern-grid opacity-[0.07]" />
 
       <div className="relative z-10 max-w-[1100px] mx-auto px-5 sm:px-8 py-16 sm:py-24 md:py-32 flex-1 flex flex-col justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6 sm:mb-8"
-        >
+        <div className="mb-6 sm:mb-8">
           <span
             className="text-[11px] sm:text-xs font-semibold tracking-[0.25em] uppercase"
             style={{ color: 'var(--vp-accent)', fontFamily: "'Open Sans', sans-serif" }}
           >
             {t('hero.label') ?? ''}
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-white leading-[1.15] mb-6 sm:mb-8 max-w-4xl whitespace-pre-line"
-        >
+        <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-white leading-[1.15] mb-6 sm:mb-8 max-w-4xl whitespace-pre-line">
           {t('hero.title') ?? ''}
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+        <p
           className="text-sm sm:text-base md:text-lg max-w-2xl mb-10 sm:mb-14 text-white/55 leading-relaxed"
           style={{ fontFamily: "'Open Sans', sans-serif" }}
         >
           {t('hero.subtitle') ?? ''}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
+        <div className="flex flex-col sm:flex-row gap-4">
           <button
             onClick={() => document?.querySelector?.('#contact')?.scrollIntoView?.({ behavior: 'smooth' })}
-            className="flex items-center justify-center gap-2.5 px-8 py-3.5 font-semibold text-white transition-all duration-300 hover:brightness-110 text-sm sm:text-base"
+            className="flex items-center justify-center gap-2.5 px-8 py-3.5 font-semibold text-white transition-all duration-300 hover:brightness-110 text-sm sm:text-base cursor-pointer"
             style={{ backgroundColor: 'var(--vp-accent)', borderRadius: 4, fontFamily: "'Open Sans', sans-serif" }}
             aria-label={t('hero.cta') ?? 'Contact'}
           >
@@ -70,19 +52,16 @@ export default function HeroSection() {
           </button>
           <button
             onClick={() => document?.querySelector?.('#services')?.scrollIntoView?.({ behavior: 'smooth' })}
-            className="flex items-center justify-center gap-2 px-8 py-3.5 font-semibold text-white border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300 text-sm sm:text-base"
+            className="flex items-center justify-center gap-2 px-8 py-3.5 font-semibold text-white border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300 text-sm sm:text-base cursor-pointer"
             style={{ borderRadius: 4, fontFamily: "'Open Sans', sans-serif" }}
           >
             {t('hero.cta2') ?? ''}
           </button>
-        </motion.div>
+        </div>
       </div>
 
       {/* Stats bar at bottom */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
+      <div
         className="relative z-10 mt-auto"
         style={{
           backgroundColor: 'rgba(10,30,38,0.8)',
@@ -109,7 +88,7 @@ export default function HeroSection() {
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

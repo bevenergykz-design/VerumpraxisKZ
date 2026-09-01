@@ -7,15 +7,15 @@ import { Quote } from 'lucide-react';
 
 export default function AboutSection() {
   const { t } = useI18n();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
 
   return (
-    <section id="mission" className="gradient-dark py-24 sm:py-28 md:py-36" ref={ref}>
+    <section id="mission" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[1000px] mx-auto px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6 }}
         >
           <h2 className="font-heading text-3xl sm:text-4xl md:text-[42px] text-white mb-10 sm:mb-14">
             {t('about.title') ?? ''}
@@ -28,10 +28,7 @@ export default function AboutSection() {
           </div>
 
           {/* Mission block */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          <div
             className="mt-12 sm:mt-16 p-7 sm:p-10 relative overflow-hidden"
             style={{
               background: 'linear-gradient(135deg, rgba(58,154,191,0.1), rgba(42,112,144,0.06))',
@@ -43,7 +40,7 @@ export default function AboutSection() {
             <p className="font-heading italic text-xl sm:text-2xl md:text-[28px] text-white leading-relaxed">
               {t('about.mission') ?? ''}
             </p>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

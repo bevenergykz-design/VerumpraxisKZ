@@ -9,7 +9,6 @@ import { WhatsAppIcon, TelegramIcon } from './floating-buttons';
 
 export default function ContactSection() {
   const { t } = useI18n();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -54,11 +53,12 @@ export default function ContactSection() {
   const inputClasses = "w-full px-5 py-3.5 bg-white/[0.04] border border-white/15 text-white placeholder-white/30 focus:outline-none focus:border-[var(--vp-accent)] transition-all duration-300 text-sm";
 
   return (
-    <section id="contact" className="gradient-dark py-24 sm:py-28 md:py-36" ref={ref}>
+    <section id="contact" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-14 sm:mb-16"
         >
@@ -71,9 +71,10 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-14 sm:gap-16">
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6 }}
           >
             {status === 'success' ? (
               <div className="p-10 text-center" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 4 }}>
@@ -161,9 +162,10 @@ export default function ContactSection() {
 
           {/* Info + Map */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-8"
           >
             <div className="space-y-5">

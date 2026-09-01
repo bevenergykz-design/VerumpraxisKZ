@@ -21,8 +21,8 @@ function truncateBio(bio: string, maxChars = 120): { short: string; isTruncated:
   return { short: cut + '…', isTruncated: true };
 }
 
-function TeamCard({ member, index, inView, readMoreLabel, readLessLabel }: {
-  member: any; index: number; inView: boolean; readMoreLabel: string; readLessLabel: string;
+function TeamCard({ member, index, readMoreLabel, readLessLabel }: {
+  member: any; index: number; readMoreLabel: string; readLessLabel: string;
 }) {
   const { t } = useI18n();
   const [expanded, setExpanded] = useState(false);
@@ -31,9 +31,10 @@ function TeamCard({ member, index, inView, readMoreLabel, readLessLabel }: {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
       className="overflow-hidden hover:translate-y-[-4px] transition-all duration-400"
       style={{
         backgroundColor: 'rgba(255,255,255,0.03)',
@@ -110,17 +111,17 @@ function TeamCard({ member, index, inView, readMoreLabel, readLessLabel }: {
 
 export default function TeamSection() {
   const { t } = useI18n();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const members = t('team.members') ?? [];
   const readMoreLabel = t('team.readMore') ?? 'Read more';
   const readLessLabel = t('team.readLess') ?? 'Read less';
 
   return (
-    <section id="team" className="gradient-dark py-24 sm:py-28 md:py-36" ref={ref}>
+    <section id="team" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
           className="font-heading text-3xl sm:text-4xl md:text-[42px] text-white text-center mb-16 sm:mb-20"
         >
@@ -133,7 +134,6 @@ export default function TeamSection() {
               key={i}
               member={member}
               index={i}
-              inView={inView}
               readMoreLabel={readMoreLabel}
               readLessLabel={readLessLabel}
             />

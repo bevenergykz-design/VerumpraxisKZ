@@ -10,7 +10,6 @@ const VISIBLE_COUNT = 3;
 
 export default function FaqSection() {
   const { t } = useI18n();
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
   const items = t('faq.items') ?? [];
@@ -33,11 +32,12 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="gradient-dark py-24 sm:py-28 md:py-36" ref={ref}>
+    <section id="faq" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[800px] mx-auto px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-14 sm:mb-16"
         >
@@ -100,12 +100,7 @@ export default function FaqSection() {
 
         {/* Show all / Show less toggle */}
         {hasMore && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="text-center mt-8"
-          >
+          <div className="text-center mt-8">
             <button
               onClick={handleToggleAll}
               className="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 hover:brightness-125 px-6 py-3"
@@ -123,7 +118,7 @@ export default function FaqSection() {
                 <ChevronDown size={16} strokeWidth={1.5} />
               )}
             </button>
-          </motion.div>
+          </div>
         )}
       </div>
 
