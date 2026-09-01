@@ -12,7 +12,7 @@ export default function AboutSection() {
     <section id="mission" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[1000px] mx-auto px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}

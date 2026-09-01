@@ -23,7 +23,7 @@ export default function PublicationsSection() {
     <section id="publications" className="py-24 sm:py-28 md:py-36 gradient-dark">
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
@@ -68,7 +68,7 @@ export default function PublicationsSection() {
             const cardContent = (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}

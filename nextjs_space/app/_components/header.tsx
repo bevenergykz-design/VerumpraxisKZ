@@ -155,7 +155,7 @@ export default function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
@@ -197,7 +197,7 @@ export default function Header() {
                       <div className="w-full" style={{ height: '0.5px', backgroundColor: 'rgba(255,255,255,0.10)' }} />
                     )}
                     <motion.button
-                      initial={{ opacity: 0, y: 24 }}
+                      initial={false}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.12 + i * 0.07, duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
                       onClick={() => handleNav(item?.href ?? '#', item?.external)}
@@ -216,7 +216,7 @@ export default function Header() {
 
               {/* Contact info - right side */}
               <motion.div
-                initial={{ opacity: 0 }}
+                initial={false}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7, duration: 0.4 }}
                 className="flex flex-col items-center lg:items-start gap-4 text-white/50 text-sm lg:border-l lg:border-white/10 lg:pl-12"

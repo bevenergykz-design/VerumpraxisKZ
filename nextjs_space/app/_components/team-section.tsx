@@ -31,7 +31,7 @@ function TeamCard({ member, index, readMoreLabel, readLessLabel }: {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
@@ -75,7 +75,7 @@ function TeamCard({ member, index, readMoreLabel, readLessLabel }: {
             {expanded ? (
               <motion.p
                 key="full"
-                initial={{ opacity: 0, height: 0 }}
+                initial={false}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
@@ -85,7 +85,7 @@ function TeamCard({ member, index, readMoreLabel, readLessLabel }: {
             ) : (
               <motion.p
                 key="short"
-                initial={{ opacity: 0 }}
+                initial={false}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
@@ -119,7 +119,7 @@ export default function TeamSection() {
     <section id="team" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}

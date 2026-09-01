@@ -29,7 +29,7 @@ export default function ServicesSection() {
     <section id="services" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
@@ -47,7 +47,7 @@ export default function ServicesSection() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}

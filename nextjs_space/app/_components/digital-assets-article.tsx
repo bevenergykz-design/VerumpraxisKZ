@@ -10,7 +10,7 @@ const ACCENT = 'var(--vp-accent)';
 function SectionBlock({ icon: Icon, title, children, delay = 0 }: { icon: any; title: string; children: React.ReactNode; delay?: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay }}
@@ -143,7 +143,7 @@ function RuContent() {
 
       {/* CTA block */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
@@ -267,7 +267,7 @@ function EnContent() {
 
       {/* CTA block */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
@@ -298,7 +298,7 @@ export default function DigitalAssetsArticle() {
     <section className="gradient-dark py-16 sm:py-20 md:py-24">
       <div className="max-w-[820px] mx-auto px-5 sm:px-8">
         {/* Back link */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
+        <motion.div initial={false} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
           <Link
             href="/publications"
             className="inline-flex items-center gap-2 text-sm mb-10 sm:mb-12 transition-colors duration-200"
@@ -311,7 +311,7 @@ export default function DigitalAssetsArticle() {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-12 sm:mb-16"

@@ -35,7 +35,7 @@ export default function FaqSection() {
     <section id="faq" className="gradient-dark py-24 sm:py-28 md:py-36">
       <div className="max-w-[800px] mx-auto px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6 }}
@@ -52,7 +52,7 @@ export default function FaqSection() {
             {visibleItems?.map?.((item: any, i: number) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8, height: 0, marginBottom: 0, overflow: 'hidden' }}
                 transition={{ duration: 0.3, delay: i >= VISIBLE_COUNT ? (i - VISIBLE_COUNT) * 0.04 : 0 }}
@@ -81,7 +81,7 @@ export default function FaqSection() {
                 <AnimatePresence initial={false}>
                   {openIndex === i && (
                     <motion.div
-                      initial={{ opacity: 0, height: 0 }}
+                      initial={false}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}

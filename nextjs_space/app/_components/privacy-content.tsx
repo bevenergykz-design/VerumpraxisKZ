@@ -21,7 +21,7 @@ export default function PrivacyContent() {
     <section className="pt-24 sm:pt-28 md:pt-32 pb-24 sm:pb-28 md:pb-32 gradient-dark">
       <div className="max-w-[900px] mx-auto px-5 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-12 sm:mb-14"
@@ -48,7 +48,7 @@ export default function PrivacyContent() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="policy-doc text-white/75 text-[15px] leading-[1.75]"

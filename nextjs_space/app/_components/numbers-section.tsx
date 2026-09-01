@@ -42,7 +42,7 @@ export default function NumbersSection() {
     <section id="numbers" className="py-24 sm:py-28 md:py-36" style={{ background: 'linear-gradient(180deg, var(--vp-dark-end), var(--vp-dark-start))' }}>
       <div className="max-w-[1100px] mx-auto px-5 sm:px-8">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           onViewportEnter={() => setStarted(true)}
           viewport={{ once: true, amount: 0.1 }}
@@ -57,7 +57,7 @@ export default function NumbersSection() {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
