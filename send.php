@@ -381,18 +381,50 @@ if ($useSmtp) {
     if ($smtpSuccess) {
         $mailStatus = 'SENT_VIA_SMTP (' . $usedTarget . ')';
     } else {
-        $mailStatus = 'ALL_SMTP_FAILED: [' . implode('; ', $errors) . '] -> FALLBACK_ATTEMPTED';
-        $fallbackSent = send_native_mail(
-            $toEmail,
-            $subject,
-            $htmlBody,
-            $textBody,
-            $email,
-            $name,
-            isset($smtpConf['from']) ? $smtpConf['from'] : 'info@verumpraxis.kz',
-            isset($smtpConf['from_name']) ? $smtpConf['from_name'] : 'Verumpraxis'
-        );
-        $mailStatus .= $fallbackSent ? ' (FALLBACK_SUCCESS)' : ' (FALLBACK_FAILED)';
+        $mailStatus = 'ALL_SMTP_FAILED: [' . implode('; ', $errors) . ']';
+
+        // Try HTTPS Web3Forms API if key provided (bypasses all blocked SMTP ports)
+        if (!empty($config['web3forms_key'])) {
+            $w3payload = [
+                'access_key' => $config['web3forms_key'],
+                'subject'    => "Новая заявка с сайта: $name — Verumpraxis",
+                'from_name'  => 'Verumpraxis Website',
+                'name'       => $name,
+                'email'      => $email,
+                'service'    => $service,
+                'message'    => $message,
+            ];
+
+            $ch = curl_init('https://api.web3forms.com/submit');
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($w3payload));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json', 'Accept: application/json']);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+            $w3res = curl_exec($ch);
+            $w3code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+
+            if ($w3code === 200) {
+                $mailStatus = 'SENT_VIA_HTTPS_API (Web3Forms)';
+            } else {
+                $mailStatus .= ' -> WEB3FORMS_HTTP_' . $w3code;
+            }
+        }
+
+        if (strpos($mailStatus, 'SENT_VIA_HTTPS_API') === false) {
+            $fallbackSent = send_native_mail(
+                $toEmail,
+                $subject,
+                $htmlBody,
+                $textBody,
+                $email,
+                $name,
+                isset($smtpConf['from']) ? $smtpConf['from'] : 'info@verumpraxis.kz',
+                isset($smtpConf['from_name']) ? $smtpConf['from_name'] : 'Verumpraxis'
+            );
+            $mailStatus .= $fallbackSent ? ' -> FALLBACK_ATTEMPTED (FALLBACK_SUCCESS)' : ' -> FALLBACK_ATTEMPTED (FALLBACK_FAILED)';
+        }
     }
 } else {
     $fromEmail = !empty($smtpConf['from']) ? $smtpConf['from'] : 'info@verumpraxis.kz';
