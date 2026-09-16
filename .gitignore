@@ -1,4 +1,4 @@
-﻿# dependencies
+# dependencies
 node_modules/
 /.pnp
 .pnp.js
@@ -28,6 +28,8 @@ dist/
 # debug
 npm-debug.log*
 yarn-error.log*
+*.log
+submissions.log
 
 # local env files
 .env*.local
