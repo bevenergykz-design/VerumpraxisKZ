@@ -1,8 +1,0 @@
-﻿# Deny access to sensitive files
-<FilesMatch \.(log|env|ini|sh|sql)$>
-    Require all denied
-</FilesMatch>
-
-<Files mail_config.php>
-    Require all denied
-</Files>
