@@ -345,29 +345,43 @@ $smtpConf = isset($config['smtp']) ? $config['smtp'] : [];
 $useSmtp = !empty($config['use_smtp']) && !empty($smtpConf['pass']);
 
 if ($useSmtp) {
-    $smtpResult = send_smtp_mail($toEmail, $subject, $htmlBody, $textBody, $email, $name, $smtpConf);
+    $errors = [];
+    $targets = [
+        ['host' => $smtpConf['host'], 'port' => (int)$smtpConf['port']],
+        ['host' => 'smtppro.zoho.com', 'port' => 465],
+        ['host' => 'smtp.zoho.com', 'port' => 465],
+        ['host' => 'smtppro.zoho.com', 'port' => 587],
+        ['host' => 'smtp.zoho.com', 'port' => 587],
+    ];
 
-    // If initial Zoho host fails, automatically try alternative Zoho host / port 587
-    if (!$smtpResult['success'] && (strpos($smtpConf['host'], 'zoho') !== false)) {
-        $altConf = $smtpConf;
-        $altConf['host'] = ($smtpConf['host'] === 'smtppro.zoho.com') ? 'smtp.zoho.com' : 'smtppro.zoho.com';
-        $altResult = send_smtp_mail($toEmail, $subject, $htmlBody, $textBody, $email, $name, $altConf);
-        if ($altResult['success']) {
-            $smtpResult = $altResult;
+    $smtpSuccess = false;
+    $usedTarget = '';
+
+    // Remove duplicates
+    $seen = [];
+    foreach ($targets as $t) {
+        $key = $t['host'] . ':' . $t['port'];
+        if (isset($seen[$key])) continue;
+        $seen[$key] = true;
+
+        $conf = $smtpConf;
+        $conf['host'] = $t['host'];
+        $conf['port'] = $t['port'];
+
+        $res = send_smtp_mail($toEmail, $subject, $htmlBody, $textBody, $email, $name, $conf);
+        if ($res['success']) {
+            $smtpSuccess = true;
+            $usedTarget = $key;
+            break;
         } else {
-            // Also try port 587 (TLS)
-            $altConf['port'] = 587;
-            $altResult587 = send_smtp_mail($toEmail, $subject, $htmlBody, $textBody, $email, $name, $altConf);
-            if ($altResult587['success']) {
-                $smtpResult = $altResult587;
-            }
+            $errors[] = $key . ' => ' . $res['error'];
         }
     }
 
-    if ($smtpResult['success']) {
-        $mailStatus = 'SENT_VIA_SMTP';
+    if ($smtpSuccess) {
+        $mailStatus = 'SENT_VIA_SMTP (' . $usedTarget . ')';
     } else {
-        $mailStatus = 'SMTP_FAILED: ' . $smtpResult['error'] . ' -> FALLBACK_ATTEMPTED';
+        $mailStatus = 'ALL_SMTP_FAILED: [' . implode('; ', $errors) . '] -> FALLBACK_ATTEMPTED';
         $fallbackSent = send_native_mail(
             $toEmail,
             $subject,
