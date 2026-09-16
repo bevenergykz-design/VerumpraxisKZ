@@ -37,7 +37,21 @@ export default function ContactSection() {
         }).catch(() => null);
       }
 
-      const data = await res?.json?.();
+      let data = await res?.json?.();
+      if (!data?.success) {
+        const w3res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: '9a7852ab-aa18-465d-8e1d-37834d7fba02',
+            subject: `🏛 Новая заявка: ${formState.name} (${formState.service}) — Verumpraxis`,
+            from_name: 'Verumpraxis Website',
+            ...formState,
+          }),
+        }).catch(() => null);
+        data = await w3res?.json?.();
+      }
+
       if (data?.success) {
         setStatus('success');
         setFormState({ name: '', email: '', service: '', message: '', honeypot: '' });

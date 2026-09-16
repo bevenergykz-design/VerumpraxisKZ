@@ -27,8 +27,7 @@ return [
     'use_smtp' => true,
 
     // Резервная отправка через HTTPS Web3Forms API (обходит все блокировки SMTP портов хостинга)
-    // Получить бесплатный ключ: введите info@verumpraxis.kz на https://web3forms.com
-    'web3forms_key' => '',
+    'web3forms_key' => '9a7852ab-aa18-465d-8e1d-37834d7fba02',
 
     // Параметры SMTP (по умолчанию настроены под Zoho Mail)
     'smtp' => [
