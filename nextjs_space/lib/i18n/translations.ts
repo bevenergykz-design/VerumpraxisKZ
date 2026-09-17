@@ -287,6 +287,7 @@ export const translations: Record<Locale, Record<string, any>> = {
           photo: '/images/batyr-adaybaev.jpg',
           bio: 'Юрист с более чем 25-летним опытом работы в области корпоративного, инвестиционного, налогового и энергетического права, а также сопровождения судебных и арбитражных споров. Профессиональную карьеру начал в 1997 году, работал в ведущих международных юридических фирмах, включая Squire Sanders and Dempsey, Macleod Dixon и Norton Rose, где консультировал по вопросам недропользования, инвестиционного законодательства, корпоративных сделок и налогообложения. Участвовал в разработке контрактов и соглашений для проектов в нефтегазовой и горнорудной отраслях, а также в подготовке законопроектов в сфере недропользования. Занимал руководящие должности в крупнейших национальных компаниях, включая АО «КазТрансГаз Аймақ» и АО «Алматыметроқұрылыс», где курировал правовые и административные направления, представлял интересы компаний в государственных органах и участвовал в стратегических проектах. Обладает значительным опытом участия в международных арбитражах, включая разбирательства в Стокгольмском арбитраже на стороне Правительства Республики Казахстан, а также сопровождения инвестиционных проектов и проведения Due Diligence в энергетическом секторе. Кандидат юридических наук. Свободно владеет казахским, русским, английским и турецким языками. Является членом Королевского института арбитров Великобритании, арбитром Казахстанского международного арбитража и Арбитражного центра НПП «Атамекен», а также сертифицированным экспертом в области антикоррупционной экспертизы.',
         },
+        /*
         {
           name: 'Елизавета Бронникова',
           role: 'Юрист',
@@ -294,6 +295,7 @@ export const translations: Record<Locale, Record<string, any>> = {
           photo: '/images/elizaveta-bronnikova.jpg',
           bio: 'Юрист с опытом работы более 5 лет в области корпоративного, договорного права и права интеллектуальной собственности. Занимается правовым сопровождением международных корпоративных структур и сделок M&A, правовым консультированием казахстанских компаний по деятельности в МФЦА и выходу на международные рынки. Отдельное направление — сопровождение и защита объектов интеллектуальной собственности.',
         },
+        */
       ],
     },
     faq: {
@@ -649,6 +651,7 @@ export const translations: Record<Locale, Record<string, any>> = {
           photo: '/images/batyr-adaybaev.jpg',
           bio: 'Lawyer with over 25 years of experience in corporate, investment, tax, and energy law, as well as litigation and arbitration. He commenced his professional career in 1997 at leading international law firms, including Squire Sanders & Dempsey, Macleod Dixon, and Norton Rose, where he advised on subsoil use legislation, investment frameworks, corporate transactions, and taxation. He has participated in the drafting of contracts for major oil and gas and mining projects and contributed to the development of subsoil use legislation. He has held senior positions at prominent national companies, including KazTransGas Aimak JSC and Almatymetroqurylis JSC, overseeing legal affairs, government relations, and strategic projects. He possesses significant experience in international arbitration, including proceedings before the Stockholm Chamber of Commerce on behalf of the Government of the Republic of Kazakhstan, as well as investment project support and due diligence in the energy sector. Candidate of Legal Sciences. Fluent in Kazakh, Russian, English, and Turkish. Member of the Chartered Institute of Arbitrators (CIArb, UK), arbitrator of the Kazakhstan International Arbitration and the NCE Atameken Arbitration Centre, and a certified expert in anti-corruption compliance.',
         },
+        /*
         {
           name: 'Elizaveta Bronnikova',
           role: 'Lawyer',
@@ -656,6 +659,7 @@ export const translations: Record<Locale, Record<string, any>> = {
           photo: '/images/elizaveta-bronnikova.jpg',
           bio: 'Lawyer with over five years of experience in corporate law, contract law, and intellectual property. She provides legal support for international corporate structures and M&A transactions, and advises Kazakhstani companies on AIFC-related matters and international market entry. She specialises in the protection and management of intellectual property rights.',
         },
+        */
       ],
     },
     faq: {

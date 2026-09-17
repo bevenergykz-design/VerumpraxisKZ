@@ -281,6 +281,7 @@ export const zhTranslations: Record<string, any> = {
         photo: '/images/batyr-adaybaev.jpg',
         bio: '在公司法、投资法、税法和能源法以及诉讼和仲裁领域拥有超25年经验的律师。1997年开始在Squire Sanders and Dempsey、Macleod Dixon和Norton Rose等顶级国际律师事务所执业，在地下资源利用、投资立法、公司交易和税务方面提供咨询。参与了石油天然气和矿业项目的合同起草以及地下资源利用立法的制定。曾在哈萨克斯坦大型国有企业担任高级管理职务。在国际仲裁领域（包括代表哈萨克斯坦共和国政府在斯德哥尔摩仲裁中的程序）拥有丰富经验。法学副博士。精通哈萨克语、俄语、英语和土耳其语。英国皇家仲裁员学会成员，哈萨克斯坦国际仲裁和"阿塔梅肯"仲裁中心仲裁员，反腐败审查认证专家。',
       },
+      /*
       {
         name: '伊丽萨维塔·布罗尼科娃',
         role: '律师',
@@ -288,6 +289,7 @@ export const zhTranslations: Record<string, any> = {
         photo: '/images/elizaveta-bronnikova.jpg',
         bio: '在公司法、合同法和知识产权法领域拥有超5年经验的律师。为国际公司架构和M&A交易提供法律支持，为哈萨克斯坦企业提供AIFC事务和国际市场拓展咨询。专注于知识产权的保护和管理。',
       },
+      */
     ],
   },
   faq: {
