@@ -9,6 +9,9 @@ interface I18nContextType {
   t: (key: string) => any;
 }
 
+// Our route/locale id for Kazakh is 'kz', but the BCP 47 language code is 'kk'.
+const htmlLang = (l: Locale) => (l === 'kz' ? 'kk' : l);
+
 const I18nContext = createContext<I18nContextType>({
   locale: 'ru',
   setLocale: () => {},
@@ -33,13 +36,13 @@ export function I18nProvider({
     if (initialLocale) {
       // Route-locked language: persist it and set <html lang>, ignore stored value.
       try { localStorage?.setItem?.('vp-locale', initialLocale); } catch {}
-      if (typeof document !== 'undefined') document.documentElement.lang = initialLocale;
+      if (typeof document !== 'undefined') document.documentElement.lang = htmlLang(initialLocale);
       return;
     }
     const saved = localStorage?.getItem?.('vp-locale') as Locale | null;
     if (saved === 'ru' || saved === 'en' || saved === 'kz' || saved === 'zh') {
       setLocaleState(saved);
-      if (typeof document !== 'undefined') document.documentElement.lang = saved;
+      if (typeof document !== 'undefined') document.documentElement.lang = htmlLang(saved);
     }
   }, [initialLocale]);
 
@@ -47,7 +50,7 @@ export function I18nProvider({
     setLocaleState(newLocale);
     try { localStorage?.setItem?.('vp-locale', newLocale); } catch {}
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = newLocale;
+      document.documentElement.lang = htmlLang(newLocale);
     }
   }, []);
 
