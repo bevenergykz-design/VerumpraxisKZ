@@ -4,14 +4,16 @@ import './globals.css';
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXTAUTH_URL || 'https://verumpraxis.kz'),
   title: {
-    default: 'Verumpraxis — Law Firm in Almaty, Kazakhstan | English Speaking Lawyers | Юридическая фирма в Алматы',
-    template: '%s | Verumpraxis — Law Firm Almaty Kazakhstan',
+    // Russian homepage (/): title in Russian for Yandex/Google RU queries.
+    // English lives on verumpraxis.com (/en), Kazakh on /kz, Chinese on /zh.
+    default: 'Юридическая фирма в Алматы — Verumpraxis | Юристы для бизнеса и инвесторов',
+    template: '%s | Verumpraxis',
   },
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
   },
-  description: 'Verumpraxis — English speaking law firm in Almaty, Kazakhstan. Legal services for international investors and businesses: corporate law, M&A, tax advisory, AIFC, dispute resolution, employment law, digital law, intellectual property. Full-service legal counsel in Kazakhstan and Central Asia. Юридическая фирма в Алматы — юридические услуги для бизнеса и частных клиентов.',
+  description: 'Verumpraxis — юридическая фирма в Алматы. Сопровождаем бизнес и иностранных инвесторов в Казахстане и Центральной Азии: корпоративное право, M&A, налоги, МФЦА, споры и арбитраж, трудовое право, интеллектуальная собственность. Работаем на русском, английском, казахском и китайском.',
   keywords: [
     /* English — general */
     'English speaking lawyers Almaty',
@@ -189,12 +191,12 @@ export const metadata: Metadata = {
     'юрист по недвижимости Алматы',
   ],
   openGraph: {
-    title: 'Verumpraxis — English Speaking Law Firm in Almaty, Kazakhstan | Legal Services for Investors',
-    description: 'English speaking lawyers in Almaty, Kazakhstan. Legal services for international investors and businesses: corporate law, M&A, tax, AIFC, dispute resolution, employment law, IP, digital law. Full-service legal counsel in Kazakhstan and Central Asia.',
-    images: [{ url: '/images/og_image.png', width: 1200, height: 630, alt: 'Verumpraxis — English speaking law firm in Almaty, Kazakhstan: corporate law, tax, AIFC, M&A, dispute resolution' }],
+    title: 'Юридическая фирма в Алматы — Verumpraxis',
+    description: 'Юридическое сопровождение бизнеса и иностранных инвесторов в Казахстане: корпоративное право, M&A, налоги, МФЦА, споры и арбитраж, трудовое право, интеллектуальная собственность.',
+    images: [{ url: '/images/og_image.png', width: 1200, height: 630, alt: 'Verumpraxis — юридическая фирма в Алматы: корпоративное право, налоги, МФЦА, M&A, споры' }],
     type: 'website',
-    locale: 'en_US',
-    alternateLocale: ['ru_RU'],
+    locale: 'ru_RU',
+    alternateLocale: ['en_US', 'kk_KZ', 'zh_CN'],
     siteName: 'Verumpraxis',
   },
   robots: {
