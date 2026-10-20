@@ -253,7 +253,8 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Yandex.Metrika counter 113697545 */}
+        {/* Yandex.Metrika counter 113697545. No <noscript> pixel: Next.js auto-preloads
+            its <img>, which would send a second hit on every visit. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -273,11 +274,6 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased">
-        <noscript>
-          <div>
-            <img src="https://mc.yandex.ru/watch/113697545" style={{ position: 'absolute', left: '-9999px' }} alt="" />
-          </div>
-        </noscript>
         {children}
         <SchemaMarkup />
       </body>
